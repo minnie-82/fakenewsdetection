@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fake News</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: black;
+        }
+
+        textarea {
+            /* Adjust height as needed */
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            padding: 10px;
+            color: black;
+        }
+
+        textarea::placeholder {
+            color: #999; /* Placeholder text color */
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+        }
+        button {
+            background-color: blueviolet;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #8a2be2; /* Darker shade when hovered */
+        }
+
+        a {
+            color: white;
+            text-decoration: none;
+            margin-left: 10px;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        h1 {
+            color: blueviolet;
+        }
+
+        h2 {
+            color: black; /* Result color */
+        }
+       
+    </style>
+</head>
+
+<body>
+    <div class="container">
+    <h1>Fake News Classifier</h1>
+    <div>
+        <form method="post" action="/predict">
+            <textarea rows="10" cols="35" name="news-content" placeholder="Type or paste your News here">{{news_text}}</textarea>
+            <div>
+                <button>Check Fake</button>
+                <button><a href="/">Reset</a></button>
+            </div>
+        </form>
+        {% if predictions=="True" %}
+        <h2>True</h2>
+        {% elif predictions=="Fake" %}
+        <h2>Fake</h2>
+        {% endif %}
+    </div>
+</div>
+</body>
+
+</html>
