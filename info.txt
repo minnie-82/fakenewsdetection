@@ -1,0 +1,5 @@
+templates : index.html if u want to add more .html files add here only 
+static: css files and images if you want to add something imaes etc add in this folder only
+         not in root one
+models: ML pikle files
+app.py: flask server
